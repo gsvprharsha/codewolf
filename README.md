@@ -76,7 +76,10 @@ CodeWolf acts as a **first-pass reviewer**, helping you:
 
 ## Demo
 
-> Coming soon — working demo with real PR reviews
+<div align="center">
+  <img src="assets/demo.gif" alt="CodeWolf Demo" />
+  <p><em>CodeWolf reviewing a pull request in real-time</em></p>
+</div>
 
 ---
 ## Documentation  
