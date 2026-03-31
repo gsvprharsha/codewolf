@@ -9,11 +9,11 @@
 </h1>
 <p align="center">
   <b>
-    <a href="#-what-is-codewolf">What is CodeWolf</a> •
-    <a href="#-features">Features</a> •
-    <a href="#-self-hosting-codewolf-quick-start">Installation</a> •
-    <a href="#-roadmap">Roadmap</a> •
-    <a href="#-contributing">Contributing</a>
+    <a href="#what-is-codewolf">What is CodeWolf</a> •
+    <a href="#features">Features</a> •
+    <a href="#demo">Demo</a> •
+    <a href="#roadmap">Roadmap</a> •
+    <a href="#contributing">Contributing</a>
   </b>
 </p>
 
@@ -217,7 +217,7 @@ CodeWolf follows a simple pipeline:
 
 ---
 
-## 🧭 Roadmap
+## Roadmap
 
 We’re building CodeWolf into a complete AI review layer for developers:
 
@@ -250,7 +250,7 @@ We’re building CodeWolf into a complete AI review layer for developers:
 
 ---
 
-## 🤝 Contributing  
+## Contributing  
   
 We welcome contributions of all kinds — from bug fixes to new features.  
   
