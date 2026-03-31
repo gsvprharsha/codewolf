@@ -9,11 +9,11 @@
 </h1>
 <p align="center">
   <b>
-    <a href="#-what-is-codewolf">What is CodeWolf</a> •
-    <a href="#-features">Features</a> •
-    <a href="#-self-hosting-codewolf-quick-start">Installation</a> •
-    <a href="#-roadmap">Roadmap</a> •
-    <a href="#-contributing">Contributing</a>
+    <a href="#what-is-codewolf">What is CodeWolf</a> •
+    <a href="#features">Features</a> •
+    <a href="#demo">Demo</a> •
+    <a href="#roadmap">Roadmap</a> •
+    <a href="#contributing">Contributing</a>
   </b>
 </p>
 
