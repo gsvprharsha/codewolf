@@ -1,0 +1,84 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "CodeWolf Docs",
+  "colors": {
+    "primary": "#0a0a0a",
+    "light": "#ffffff",
+    "dark": "#1E40AF"
+  },
+  "favicon": "/favicon.svg",
+
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "index",
+              "dev-setup",
+              "github-app-setup"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "architecture",
+              "configuration"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "GitHub",
+          "href": "https://github.com/gsvprharsha/codewolf",
+          "icon": "github"
+        },
+        {
+          "anchor": "X",
+          "href": "https://github.com/gsvprharsha/codewolf",
+          "icon": "x-twitter"
+        }
+
+      ]
+    }
+  },
+
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+
+  "navbar": {
+    "links": [
+      {
+        "label": "Docs",
+        "href": "/"
+      }
+    ],
+    "primary": {
+      "type": "github",
+      "label": "GitHub",
+      "href": "https://github.com/gsvprharsha/codewolf"
+    }
+  },
+
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt"
+    ]
+  },
+
+  "footer": {
+    "socials": {
+      "github": "https://github.com/gsvprharsha/codewolf"
+    }
+  }
+}

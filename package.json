@@ -1,0 +1,15 @@
+{
+  "name": "codewolf",
+  "private": true,
+  "workspaces": [
+    "app",
+    "web",
+    "docs"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces",
+    "dev:app": "npm run dev --workspace=app",
+    "dev:web": "npm run dev --workspace=web",
+    "dev:docs": "npm run dev --workspace=docs"
+  }
+}

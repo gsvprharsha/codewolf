@@ -1,0 +1,155 @@
+---
+title: "Introduction"
+description: "Learn what CodeWolf does, how it reviews pull requests, and how to start using it."
+---
+
+<p align="center">
+  <img 
+    src="/logo/light.svg" 
+    alt="CodeWolf Logo"
+    style={{height: "100px", width: "500px"}}
+    className="block dark:hidden rounded-lg"
+  />
+  <img 
+    src="/logo/dark.svg" 
+    alt="CodeWolf Logo"
+    style={{height: "100px", width: "500px"}}
+    className="hidden dark:block rounded-lg"
+  />
+</p>
+
+---
+
+## What is CodeWolf?
+
+**CodeWolf** is an open-source AI-powered code review engine that automatically reviews your pull requests and provides meaningful, structured feedback.
+
+It acts as your **always-on first reviewer**, helping you ship faster without compromising quality.
+
+It analyzes code diffs, identifies potential bugs, highlights security vulnerabilities, and suggests improvements directly inside your PR workflow.
+
+Unlike traditional tools, CodeWolf is:
+- **LLM-agnostic (BYOK)** - use your own model  
+- **Fully self-hostable** - no vendor lock-in  
+- **Minimal and fast** - no bloated dashboards or unnecessary noise  
+
+---
+
+## Why CodeWolf?
+
+<Columns cols={3}>
+  <Card title="Faster Reviews" icon="bolt">
+    Reduce PR review time by catching issues before human review.
+  </Card>
+
+  <Card title="Security First" icon="shield">
+    Identify vulnerabilities and risky patterns early in the development cycle.
+  </Card>
+
+  <Card title="No Lock-in" icon="lock-open">
+    Bring your own LLM and run everything on your own infrastructure.
+  </Card>
+</Columns>
+
+---
+
+## How it works
+
+CodeWolf integrates directly into your GitHub workflow and acts as an automated first-pass reviewer for every pull request.
+
+1. GitHub webhook triggers on a pull request  
+2. CodeWolf fetches changed files and builds context  
+3. Sends structured input to your configured LLM  
+4. Generates actionable feedback  
+5. Posts a review directly on the pull request  
+
+### Result
+
+- Faster PR cycles  
+- Fewer missed issues  
+- Consistent code quality  
+
+CodeWolf does not replace human reviewers. It makes them significantly more effective.
+
+---
+
+## Get Started
+
+Set up CodeWolf locally and connect it to your repository.
+
+<Columns cols={2}>
+  <Card
+    title="Installation"
+    icon="download"
+    href="/installation"
+  >
+    Set up the server, configure environment variables, and get CodeWolf running.
+  </Card>
+
+  <Card
+    title="GitHub App Setup"
+    icon="github"
+    href="/github-app-setup"
+  >
+    Configure permissions and webhooks to enable pull request reviews.
+  </Card>
+</Columns>
+
+---
+
+## Deployment
+
+Run CodeWolf on your own infrastructure for persistent usage.
+
+<Columns cols={2}>
+  <Card
+    title="Hosting Locally"
+    icon="laptop"
+    href="/deployment/hosting-locally"
+  >
+    Expose your local server using ngrok for development and testing.
+  </Card>
+
+  <Card
+    title="Hosting on Vercel"
+    icon="cloud"
+    href="/deployment/hosting-on-vercel"
+  >
+    Deploy CodeWolf to Vercel for production usage.
+  </Card>
+</Columns>
+
+---
+
+## Learn More
+
+<Columns cols={2}>
+  <Card
+    title="Architecture"
+    icon="diagram-project"
+    href="/architecture"
+  >
+    Understand how CodeWolf processes pull requests internally.
+  </Card>
+
+  <Card
+    title="Configuration"
+    icon="sliders"
+    href="/configuration"
+  >
+    Customize models, environment variables, and behavior.
+  </Card>
+</Columns>
+
+---
+
+## What’s next?
+
+- Add CodeWolf to your repository  
+- Open a pull request  
+- CodeWolf automatically reviews your changes  
+- Iterate faster with AI-powered feedback  
+
+---
+
+CodeWolf is built to become the **default AI reviewer in every developer workflow**.

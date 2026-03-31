@@ -1,0 +1,101 @@
+---
+title: "GitHub App Setup"
+description: "Create and configure a GitHub App to connect CodeWolf with your repository."
+---
+
+Now that CodeWolf is running locally, you need to ensure it can receive pull request events from GitHub.
+
+To do this:
+1. Expose your local server using ngrok  
+2. Create and configure a GitHub App  
+
+This allows CodeWolf to receive webhook events and post reviews directly on pull requests.
+
+---
+
+## Expose your local server
+
+GitHub requires a public URL to send webhook events.
+
+Run:
+
+```bash
+ngrok http 3000
+```
+
+Copy the generated HTTPS URL (example: `https://abc123.ngrok.io`)
+
+You will use this URL while configuring your GitHub App.
+
+## Create a Github App
+
+1. Go to GitHub Developer Settings → GitHub Apps
+2. Click New GitHub App
+
+## Configure basic settings
+
+### App Name
+Choose any name (example: `CodeWolf`)
+
+### Webhook URL
+
+Here paste your ngrok URL with `/webhook` in the end
+
+```bash
+https://your-ngrok-url/webhook
+```
+
+And then choose a webhook secret (optional, but recommended)
+
+### Set permissions
+
+Under Repository permissions, configure:
+- Pull requests: Read & Write
+- Contents: Read
+- Metadata: Read
+
+### Subscribe to events
+
+Enable: 
+- Pull request events
+
+### Generate Private Key
+
+After creating the app:
+
+1. Scroll to Private keys
+2. Click Generate a private key
+3. Download the `.pem` file
+
+### Update environment variables
+
+Add the following to your `.env` file:
+
+```bash
+GITHUB_APP_ID=your_app_id
+GITHUB_PRIVATE_KEY_PATH=path/to/private-key.pem
+```
+
+### Install the Github App
+
+1. Go to your GitHub App page
+2. Click Install App
+3. Select your repository
+
+### Verify Setup
+1. Open a pull request in your repository
+2. CodeWolf should receive the webhook event
+3. A review comment should appear on the PR
+
+## Troubleshooting
+- Ensure ngrok is running and URL is correct
+- Verify webhook URL ends with /webhook
+- Check server logs for errors
+- Confirm permissions are set correctly
+- Make sure the app is installed on the repository
+
+## Next steps
+- [Understand how CodeWolf works](/architecture)
+
+
+CodeWolf is now connected to your repository and ready to review pull requests.

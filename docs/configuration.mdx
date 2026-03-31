@@ -1,0 +1,99 @@
+---
+title: "Configuration"
+description: "Configure environment variables, LLM providers, and customize how CodeWolf reviews pull requests."
+---
+
+# Configuration
+
+CodeWolf is designed to be flexible and self-hosted.  
+All configuration is handled through environment variables and can be extended over time.
+
+---
+
+## Environment Variables
+
+All configuration is managed via the `.env` file in the root directory.
+
+### GitHub Configuration
+
+```env
+GITHUB_APP_ID=
+GITHUB_PRIVATE_KEY_PATH=
+```
+
+### LLM Configuration
+
+```env
+HF_TOKEN=
+HF_MODEL=
+```
+
+### LLM providers
+
+CodeWolf follows a BYOK (Bring Your Own Key) approach.
+
+Currently supported:
+- Hugging Face (via app/llm/huggingface.js)
+
+More providers will be added soon.
+
+### How it works
+
+- CodeWolf sends structured prompts to the configured model
+- The model returns analysis (bugs, security issues, suggestions)
+- Output is normalized and posted to the PR
+
+### Future Support
+
+Planned support includes:
+- OpenAI
+- Anthropic
+- Gemini
+- Local models running with Ollama, etc.
+
+## Model Selection
+
+Choosing the right model affects:
+- Review quality
+- Speed
+- Cost
+
+### Recommendations
+- Use larger models for deeper analysis
+- Use faster models for quicker feedback cycles
+
+### Future customization
+
+Planned enhancements:
+
+- Custom prompts  
+- Rule-based review guidelines  
+- Team-specific coding standards  
+
+---
+
+## File Filtering
+
+Before sending data to the LLM, CodeWolf filters out:
+
+- Large files  
+- Generated code  
+- Unsupported formats  
+
+This improves signal quality and reduces unnecessary processing.
+
+---
+
+## Extending Configuration
+
+The system is designed to be modular.
+
+You can extend:
+
+- Add new LLM providers in app/llm/  
+- Modify review logic in app/core/reviewEngine.js  
+- Adjust filtering rules based on your needs  
+
+---
+
+Configuration in CodeWolf is intentionally simple today, with flexibility to evolve as the system grows.

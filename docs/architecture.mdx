@@ -1,0 +1,170 @@
+---
+title: "Architecture"
+description: "Understand how CodeWolf processes pull requests and generates AI-powered code reviews."
+---
+
+CodeWolf is built as a lightweight, event-driven GitHub App centered around webhook processing.
+
+At a high level, it listens to pull request events, processes code changes, analyzes them using an LLM, and posts structured feedback back to the PR.
+
+---
+
+## System Overview
+
+The system consists of three main layers:
+
+1. **GitHub Integration Layer**  
+2. **Core Review Engine**  
+3. **LLM Processing Layer**  
+
+Each layer is modular and designed to be easily extendable.
+
+---
+
+## Event Flow
+
+### 1. Webhook Listener
+
+The main server (`app/server.js`) listens for incoming GitHub webhook events.
+
+It handles pull request triggers such as:
+
+- `opened`  
+- `synchronize`  
+
+When a PR event is received:
+
+- The request is parsed  
+- Metadata is extracted:
+  - Repository  
+  - Pull request number  
+  - Commit SHA  
+
+---
+
+### 2. GitHub Authentication
+
+Authentication is handled via: `app/github/githubClient.js`
+
+
+- Uses the GitHub App’s private key  
+- Generates an installation-scoped Octokit client  
+- Ensures secure, scoped access to the repository  
+
+---
+
+### 3. Fetching Code Changes
+
+Once authenticated, CodeWolf:
+
+- Fetches the list of changed files using the GitHub API  
+- Retrieves:
+  - File diffs (patch)  
+  - Full file contents  
+
+This provides both **what changed** and **full context**.
+
+---
+
+### 4. Review Pipeline
+
+The core processing happens in: `app/core/reviewEngine.js`
+
+#### File Filtering
+
+Before sending data to the LLM, CodeWolf filters out:
+
+- Large files  
+- Generated assets  
+- Unsupported file types  
+- Low-signal changes  
+
+This ensures only relevant code is analyzed.
+
+---
+
+### 5. Prompt Construction
+
+For each relevant file:
+
+- A structured prompt is created  
+- Includes:
+  - Code diff  
+  - Surrounding context  
+  - Review instructions  
+
+This ensures the LLM has enough context to generate meaningful feedback.
+
+---
+
+### 6. LLM Processing
+
+The prompt is sent to the configured LLM provider via: `app/llm`
+
+Example: `app/llm/huggingFace.js`
+
+
+Key characteristics:
+
+- BYOK (Bring Your Own Key)  
+- Supports different providers via abstraction  
+- Model can be swapped without changing core logic  
+
+The LLM returns structured insights such as:
+
+- Bugs and edge cases  
+- Security vulnerabilities  
+- Production risks  
+- Code improvement suggestions  
+
+---
+
+### 7. Review Aggregation
+
+- Responses from the LLM are normalized  
+- Results across files are aggregated  
+- Structured into a readable format  
+
+---
+
+### 8. PR Commenting
+
+Finally, CodeWolf:
+
+- Posts the review back to the pull request  
+- Uses the GitHub API  
+- Delivers feedback as a structured comment  
+
+---
+
+## Design Principles
+
+### Event-driven
+CodeWolf reacts to GitHub events instead of polling, making it efficient and real-time.
+
+### Modular
+Each layer (GitHub, Core, LLM) is isolated, making it easy to extend or replace components.
+
+### Self-hosted
+All processing runs on your infrastructure. No code leaves your environment unless your configured LLM requires it.
+
+### LLM-agnostic
+Supports multiple providers through a unified interface, allowing flexibility and control.
+
+---
+
+## Extensibility
+
+The architecture is designed to evolve with minimal changes.
+
+Future improvements can include:
+
+- Support for additional LLM providers  
+- Smarter filtering and prioritization  
+- Multi-file and cross-file analysis  
+- Automated fixes and PR generation  
+- Custom rule enforcement  
+
+---
+
+CodeWolf is built to remain simple at its core while allowing powerful extensions as it evolves.

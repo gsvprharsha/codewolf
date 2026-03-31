@@ -1,0 +1,77 @@
+---
+title: "Dev Setup"
+description: "Install CodeWolf, configure environment variables, and run the server locally."
+---
+
+## Prerequisites
+
+Make sure you have:
+
+- Node.js (v18 or higher recommended)  
+- npm installed  
+- A Hugging Face account (for LLM access)
+
+---
+
+## Clone the repository
+
+```bash
+git clone https://github.com/codewolfai/codewolf.git
+cd codewolf
+```
+
+---
+
+## Configure environment variables
+
+```bash
+cp .env.example .env
+```
+
+Update the `.env` file:
+
+```bash
+# GitHub App credentials
+GITHUB_APP_ID=
+GITHUB_PRIVATE_KEY_PATH=
+
+# LLM configuration
+HF_TOKEN=
+HF_MODEL=
+```
+
+---
+
+## Install dependencies
+
+```bash
+npm install
+```
+
+## Start the server
+
+```bash
+npm run dev:app
+```
+
+This starts CodeWolf in development mode on `http://localhost:3000`.
+
+## Development Setup
+At this point, you have a local development instance running.
+
+At this stage:
+- The app is running locally for development and testing
+- GitHub integration is not configured yet
+- No webhook events or PR reviews will be processed yet
+
+---
+
+## Next steps
+
+- [Set up GitHub integration](/github-app-setup)
+- [Deploy to production](/deployment/hosting-on-local)
+- [Deploy to production](/deployment/hosting-on-vercel)
+
+---
+
+You’re now ready to start developing on CodeWolf locally.
