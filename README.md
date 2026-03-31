@@ -217,7 +217,7 @@ CodeWolf follows a simple pipeline:
 
 ---
 
-## 🧭 Roadmap
+## Roadmap
 
 We’re building CodeWolf into a complete AI review layer for developers:
 
@@ -250,7 +250,7 @@ We’re building CodeWolf into a complete AI review layer for developers:
 
 ---
 
-## 🤝 Contributing  
+## Contributing  
   
 We welcome contributions of all kinds — from bug fixes to new features.  
   
