@@ -16,7 +16,9 @@
     <a href="#-contributing">Contributing</a>
   </b>
 </p>
+
 ---
+
 ## What is CodeWolf?
 
 **CodeWolf** is an open-source AI-powered code review engine that automatically reviews your pull requests and provides meaningful, structured feedback.
